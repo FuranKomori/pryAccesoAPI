@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobikeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Acceso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="FechaUltimoAcceso" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="MobikeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Acceso" EntityType="Self.Acceso" />
+    <EntitySet Name="Bicicleta" EntityType="MobikeModel.Bicicleta" />
+  </EntityContainer>
+  <EntityType Name="Bicicleta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaUltimaAtencion" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="Int32" />
+  </EntityType>
+</Schema>
